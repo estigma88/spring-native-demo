@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: daniel.pelaez
+      changes:
+        - sql:
+            sql: CREATE SCHEMA spring_demo_native
+  - changeSet:
+      id: 2
+      author: daniel.pelaez
+      changes:
+        - createTable:
+            tableName: customer
+            schemaName: spring_demo_native
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pkey
+                  name: id
+                  type: varchar(50)
+              - column:
+                  name: name
+                  type: text
